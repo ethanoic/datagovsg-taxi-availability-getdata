@@ -32,8 +32,9 @@ var getCurrDateFormatted = function() {
 };
 var outfileName = 'taxi_' + getCurrDateFormatted() +'.txt';
 
+var logger;
 var startFileOutStream = function() {
-    var logger = fs.createWriteStream(outfileName, {
+    logger = fs.createWriteStream(outfileName, {
         flags: 'a' // 'a' means appending (old data will be preserved)
     });
 }
