@@ -85,7 +85,7 @@ setInterval(function() {
               console.log("Uploaded in:", data.Location);
             }
         });
-
+ 
         // open new stream to new file
         outfileName = 'taxi_' + getCurrDateFormatted() + '.txt';
         startFileOutStream();
