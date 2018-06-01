@@ -28,12 +28,13 @@ var padString = function(str) {
         return _str;
 };
 var getCurrDateFormatted = function() {
-    return padString(currDate.getDate()) + '_' + padString(currDate.getMonth()) + '_' + currDate.getFullYear();
+    return padString(currDate.getDate()) + '_' + padString(currDate.getMonth() + 1) + '_' + currDate.getFullYear();
 };
 var outfileName = 'taxi_' + getCurrDateFormatted() +'.txt';
 
 var logger;
 var startFileOutStream = function() {
+    console.log('start file outstream>>' + outfileName);
     logger = fs.createWriteStream(outfileName, {
         flags: 'a' // 'a' means appending (old data will be preserved)
     });
@@ -63,6 +64,7 @@ var timeInterval = 1000 * 60;
 setInterval(function() {
     var datetimeNow = new Date();
     if (datetimeNow.getDate() != currDate.getDate()) {
+        currDate = new Date();
         // some console messages
         console.log(lineCount + ' lines written');
 
