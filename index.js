@@ -4,10 +4,7 @@ var AWS = require('aws-sdk');
 var path = require('path');
 
 var s3 = new AWS.S3();
-AWS.config.update({
-    accessKeyId: "AKIAJJU6AFC2JJWJGRUA",
-    secretAccessKey: "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"
-});
+AWS.config.loadFromPath('aws.json');
 
 var myBucket = 'taxisgdata';
 
